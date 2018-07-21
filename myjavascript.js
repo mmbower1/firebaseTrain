@@ -29,17 +29,11 @@ database.ref().on("child_added", function (snapshot) {
     console.log("train time" + trainTime);
 
     var frequency = snapshot.val().frequency;
+    console.log("frequency " + frequency);
 
-    // console.log(snapshot.val().name);
-    // console.log(snapshot.val());
-    // console.log(moment());
-
-    var firstTimeConverted = moment(trainTime, "HH:mm");
+    var firstTimeConverted = moment(trainTime, "HH:mm").subtract(1, "years");
     console.log("first time converted" + firstTimeConverted);
 
-    // Current Time
-    var currentTime = moment();
-    console.log("CURRENT TIME: " + moment(currentTime).format("hh:mm"));
 
     // Difference between the times
     var diffTime = moment().diff(moment(firstTimeConverted), "minutes");
@@ -58,7 +52,7 @@ database.ref().on("child_added", function (snapshot) {
     console.log("ARRIVAL TIME: " + moment(nextArrival).format("hh:mm"));
 
     $("#tbody").append("<tr> <td>" + snapshot.val().trainName + "</td> <td>" + snapshot.val().destination + "</td> <td>" + 
-    snapshot.val().frequency + "</td> <td>" + nextArrival + "</td> <td>" + tMinutesAway + "</td> </tr>");
+    snapshot.val().frequency + "</td> <td>" + moment(nextArrival).format("hh:mm") + "</td> <td>" + tMinutesAway + "</td> </tr>");
 
 }, function (errorObject) {
 
