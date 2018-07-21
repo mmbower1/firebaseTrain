@@ -30,47 +30,55 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
         <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
 
         <style>
-            .jumbotron, .myForm, .table, .border {
+            .jumbotron, .myForm, .border, .table {
                 border: 20px;
                 border-radius: 20px;
                 margin: 20px;
+                margin-right: 150px;
+            }
+
+            h2 {
+                background-color: #00CED1
             }
         </style>
     </head>
     <body>
         <div class="jumbotron">
-            <h1 class="display-4">Employee Data Management</h1>
-            <p class="lead">A Comprehensive Directory of Employable Billable Hours</p>
+            <h1 class="display-4">Matt's Firebase Train Schedule</h1>
+            <p class="lead">Yeeeeeeeeeeee Haw!</p>
         </div>
         <div class="border">
-            <h2>Add Employee</h2>
+            <h2>Current Train Schedule</h2>
             <form class="myForm">
-                Employee Name
-                <input type="text" id="employee-name">
-                Role
-                <input type="text" id="role">
-                Start Date
-                <input type="date" id="startDate">
-                Monthly Rate
-                <input id="monthlyDate" type="date">
+                Train Name:
+                <input type="text" id="train-name">
+                Destination:
+                <input type="text" id="destination"><br>
+                First Train Time:
+                <input type="text" id="first-train-time">
+                Frequency (Min):
+                <input id="frequency">
                 <input id="submit-button" type="submit">
             </form>
         </div>
         <div class="table">
-            <h2>Current Employees</h2>
+            <h2>Add Train</h2>
             <table class="table">
                 <thead>
                     <tr>
-                        <th scope="col">Employee Name</th>
-                        <th scope="col">Role</th>
-                        <th scope="col">Start Date</th>
-                        <th scope="col">Months Worked</th>
-                        <th scope="col">Monthly Rate</th>
-                        <th scope="col">Billed</th>
+                        <th scope="col">Train Name</th>
+                        <th scope="col">Destination</th>
+                        <th scope="col">Frequency (Min)</th>
+                        <th scope="col">Next Arrival</th>
+                        <th scope="col">Minutes Away</th>
                     </tr>
                 </thead>
+                <tbody id="tbody">
+
+                </tbody>
             </table>
         </div>
 
